@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Simon, sequence } from './Simon';
+import { connect } from 'react-redux';
 // components
 import Pad from './components/Pad';
 
@@ -16,6 +17,7 @@ class App extends Component {
 
   componentDidMount = () => {
     const { addToSequence, randomColor } = this.simon;
+    console.log(this.props);
     addToSequence(randomColor());
     this.playSequence(sequence);
   };
@@ -77,4 +79,9 @@ class App extends Component {
   };
 }
 
-export default App;
+const mapStateToProps = state => {
+  const { sequence } = state.match;
+  return { sequence };
+};
+
+export default connect(mapStateToProps)(App);

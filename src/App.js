@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { Simon, sequence } from './Simon';
+// redux
+import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import { matchActions } from './actions/MatchActions';
 // components
 import Pad from './components/Pad';
 
@@ -8,43 +11,17 @@ class App extends Component {
   constructor() {
     super();
     this.simon = new Simon();
-    this.state = {
-      score: 0,
-      activeColor: '',
-      sequencePlaying: false
-    };
   }
 
-  componentDidMount = () => {
-    const { addToSequence, randomColor } = this.simon;
-    console.log(this.props);
-    addToSequence(randomColor());
-    this.playSequence(sequence);
-  };
+  componentDidMount = () => {};
 
-  handleClick = e => {
-    if (!this.state.sequencePlaying) {
-      const { color } = e.target.dataset;
-      console.log(color);
-    }
-  };
+  handleClick = e => {};
 
   // change active pad
-  changePad = color => {
-    this.setState({ active: color });
-    return this.simon.sleep(500);
-  };
+  changePad = color => {};
 
   // show user new sequence
-  playSequence = async seq => {
-    this.setState({ sequencePlaying: true });
-    for (let i = 0; i < seq.length; i++) {
-      await this.changePad(seq[i]);
-    }
-    // set active pad to nothing after sequence flash
-    await this.changePad('');
-    this.setState({ sequencePlaying: false });
-  };
+  playSequence = async seq => {};
 
   render = () => {
     const { colors } = this.simon;
@@ -57,7 +34,6 @@ class App extends Component {
               key={i}
               color={color}
               onClick={this.handleClick}
-              active={color === this.state.active}
               data-color={color}
             />
           ))}
@@ -68,12 +44,10 @@ class App extends Component {
               key={i}
               color={color}
               onClick={this.handleClick}
-              active={color === this.state.active}
               data-color={color}
             />
           ))}
         </div>
-        <h1>{this.state.score}</h1>
       </div>
     );
   };
@@ -84,4 +58,11 @@ const mapStateToProps = state => {
   return { sequence };
 };
 
-export default connect(mapStateToProps)(App);
+const mapDispatchToProps = dispatch => {
+  return { actions: bindActionCreators(matchActions, dispatch) };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(App);

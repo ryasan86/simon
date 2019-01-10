@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { lighten } from 'polished';
 
 const Pad = styled.div`
+  margin: 5px;
   width: 200px;
   height: 200px;
   box-sizing: border-box;

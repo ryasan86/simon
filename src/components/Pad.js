@@ -9,8 +9,9 @@ const Pad = styled.div`
   cursor: pointer;
   animation: none;
   transition: 0.2s;
+  transform: ${({active}) => active ? 'scale(1.3)' : ''};
   &:hover {
-    transform: scale(1.03);
+  transform: ${({active}) => !active ? 'scale(1.03)': ''};
   }
 `;
 

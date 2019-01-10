@@ -1,1 +1,1 @@
-export * from './MatchActions';
+export * from './GameActions';

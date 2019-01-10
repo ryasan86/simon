@@ -44,6 +44,7 @@ class App extends Component {
     sequenceOff();
   };
 
+  // pad click
   handleClick = async e => {
     const { color } = e.target.dataset;
     const { game, actions } = this.props;
@@ -52,6 +53,7 @@ class App extends Component {
     this.checkWin();
   };
 
+  // handle win / loss
   checkWin = async () => {
     const { sequence, guessed } = this.props.match;
     const length = guessed.length - 1;
@@ -71,7 +73,7 @@ class App extends Component {
     const { activePad, score } = this.props.game;
 
     return (
-      <div style={{ height: '100vh'  }}>
+      <div style={{ height: '100vh' }}>
         <PadsContainer>
           <PadBank>
             {colors.slice(0, 2).map((color, i) => (

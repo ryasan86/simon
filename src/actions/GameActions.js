@@ -8,8 +8,13 @@ import {
   ACTIVE_PAD
 } from './types';
 import { colors } from '../globals';
-import { createAction } from './utils';
 
+// helpers
+export const createAction = (type, payload = {}) => {
+  return { type, payload };
+};
+
+// actions
 const startGame = () => createAction(START_GAME, sample(colors));
 const sequenceOn = () => createAction(SEQUENCE_ON);
 const sequenceOff = () => createAction(SEQUENCE_OFF);

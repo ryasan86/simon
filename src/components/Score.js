@@ -8,7 +8,7 @@ const ScoreContainer = styled.div`
   font-size: 50px;
   position: fixed;
   border-radius: 50%;
-  background: black;
+  background: #131313;
   color: white;
   display: flex;
   justify-content: center;

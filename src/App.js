@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { colors, colorObj, SEQUENCE_DELAY, NEXT_LEVEL_DELAY } from './globals';
 import { sleep, playSound } from './utils';
 // redux
@@ -6,10 +6,9 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { gameActions } from './actions';
 // components
-import Pad from './components/Pad';
-import PadBank from './components/PadBank';
-import PadsContainer from './components/PadsContainer';
-import Score from './components/Score';
+import PadBank from './components/Pads/PadBank';
+import Score from './components/Score/Score';
+import FlexContainer from './components/common/FlexContainer';
 
 class App extends Component {
   componentDidMount = () => {
@@ -73,36 +72,14 @@ class App extends Component {
   };
 
   render = () => {
-    const { activePad, score } = this.props.game;
-
     return (
-      <div style={{ height: '100vh' }}>
-        <PadsContainer>
-          <PadBank>
-            {colors.slice(0, 2).map((color, i) => (
-              <Pad
-                key={i}
-                color={color}
-                onClick={this.handleClick}
-                data-color={color}
-                active={activePad === color}
-              />
-            ))}
-          </PadBank>
-          <Score score={score} />
-          <PadBank>
-            {colors.slice(2, 4).map((color, i) => (
-              <Pad
-                key={i}
-                color={color}
-                onClick={this.handleClick}
-                data-color={color}
-                active={activePad === color}
-              />
-            ))}
-          </PadBank>
-        </PadsContainer>
-      </div>
+      <Fragment>
+        <FlexContainer>
+          <PadBank pads={colors.slice(0, 2)} handleClick={this.handleClick} />
+          <Score score={this.props.game.score} />
+          <PadBank pads={colors.slice(2, 4)} handleClick={this.handleClick} />
+        </FlexContainer>
+      </Fragment>
     );
   };
 }

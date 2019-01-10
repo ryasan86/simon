@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { colors, sleep, SEQUENCE_DELAY, NEXT_LEVEL_DELAY } from './globals';
+import { colors, colorObj, SEQUENCE_DELAY, NEXT_LEVEL_DELAY } from './globals';
+import { sleep, playSound } from './utils';
 // redux
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
@@ -21,15 +22,17 @@ class App extends Component {
     this.playSequence();
   };
 
-  // play pad
+  // play pad animation and sound with delay between pads
   playPad = async pad => {
-    this.props.actions.activePad(pad);
+    const { color, audioUrl } = pad;
+    playSound(audioUrl);
+    this.props.actions.activePad({ color });
     await sleep(SEQUENCE_DELAY);
     this.props.actions.activePad('');
     return sleep(SEQUENCE_DELAY);
   };
 
-  // play sequence of pads with delay in between
+  // play sequence of pads with delay between levels
   playSequence = async () => {
     const {
       actions: { sequenceOn, sequenceOff, activePad },
@@ -38,7 +41,7 @@ class App extends Component {
 
     sequenceOn();
     for (let i = 0; i < sequence.length; i++) {
-      await this.playPad(sequence[i]);
+      await this.playPad(colorObj[sequence[i]]);
     }
     activePad('');
     sequenceOff();
@@ -46,14 +49,14 @@ class App extends Component {
 
   // pad click
   handleClick = async e => {
-    const { color } = e.target.dataset;
+    const { color: guess } = e.target.dataset;
     const { game, actions } = this.props;
-    !game.playingSequence && (await actions.guessColor(color));
-    this.playPad(color);
+    !game.playingSequence && (await actions.guessColor({ guess }));
+    this.playPad(colorObj[guess]);
     this.checkWin();
   };
 
-  // handle win / loss
+  // win / loss
   checkWin = async () => {
     const { sequence, guessed } = this.props.match;
     const length = guessed.length - 1;

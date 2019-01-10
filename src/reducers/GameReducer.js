@@ -14,7 +14,8 @@ const INITIAL_STATE = {
 };
 
 export default (state = INITIAL_STATE, action) => {
-  switch (action.type) {
+  const { type, payload } = action;
+  switch (type) {
     case START_GAME:
       return { ...state, gameOver: false, score: 0 };
     case NEXT_LEVEL:
@@ -24,7 +25,7 @@ export default (state = INITIAL_STATE, action) => {
     case SEQUENCE_OFF:
       return { ...state, playingSequence: false, activePad: '' };
     case ACTIVE_PAD:
-      return { ...state, activePad: action.payload };
+      return { ...state, activePad: payload.color };
     default:
       return state;
   }

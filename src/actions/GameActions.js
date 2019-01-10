@@ -8,19 +8,15 @@ import {
   ACTIVE_PAD
 } from './types';
 import { colors } from '../globals';
-
-// helpers
-export const createAction = (type, payload = {}) => {
-  return { type, payload };
-};
+import { createAction } from './../utils';
 
 // actions
-const startGame = () => createAction(START_GAME, sample(colors));
-const sequenceOn = () => createAction(SEQUENCE_ON);
+const startGame   = () => createAction(START_GAME, sample(colors));
+const sequenceOn  = () => createAction(SEQUENCE_ON);
 const sequenceOff = () => createAction(SEQUENCE_OFF);
-const nextLevel = () => createAction(NEXT_LEVEL);
-const guessColor = payload => createAction(GUESS_COLOR, payload);
-const activePad = payload => createAction(ACTIVE_PAD, payload);
+const nextLevel   = () => createAction(NEXT_LEVEL);
+const guessColor  = payload => createAction(GUESS_COLOR, payload);
+const activePad   = payload => createAction(ACTIVE_PAD, payload);
 
 export const gameActions = {
   startGame,

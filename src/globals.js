@@ -1,5 +1,23 @@
 export const colors = ['red', 'blue', 'green', 'yellow'];
-export const sleep = (ms = 0) => new Promise(resolve => setTimeout(resolve, ms));
+
+export const colorObj = {
+  red: {
+    color: 'red',
+    audioUrl: 'https://s3.amazonaws.com/freecodecamp/simonSound1.mp3'
+  },
+  blue: {
+    color: 'blue',
+    audioUrl: 'https://s3.amazonaws.com/freecodecamp/simonSound1.mp3'
+  },
+  yellow: {
+    color: 'yellow',
+    audioUrl: 'https://s3.amazonaws.com/freecodecamp/simonSound1.mp3'
+  },
+  green: {
+    color: 'green',
+    audioUrl: 'https://s3.amazonaws.com/freecodecamp/simonSound1.mp3'
+  }
+};
 
 export const SEQUENCE_DELAY = 200;
 export const NEXT_LEVEL_DELAY = 1000;

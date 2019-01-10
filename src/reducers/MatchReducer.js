@@ -8,13 +8,14 @@ const INITIAL_STATE = {
 };
 
 export default (state = INITIAL_STATE, action) => {
-  switch (action.type) {
+  const { type, payload } = action;
+  switch (type) {
     case START_GAME:
       return { guessed: [], sequence: [...state.sequence] };
     case NEXT_LEVEL:
-      return { guessed: [], sequence: state.sequence.concat(sample(colors)) };
+      return { guessed: [], sequence: [...state.sequence, sample(colors)] };
     case GUESS_COLOR:
-      return { ...state, guessed: state.guessed.concat(action.payload) };
+      return { ...state, guessed: [...state.guessed, payload.guess] };
     default:
       return state;
   }

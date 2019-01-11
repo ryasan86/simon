@@ -1,9 +1,9 @@
 {
   "main.css": "/simon/static/css/main.f54bd5af.chunk.css",
-  "main.js": "/simon/static/js/main.e4ea0249.chunk.js",
-  "main.js.map": "/simon/static/js/main.e4ea0249.chunk.js.map",
-  "static/js/1.d1a4ddaa.chunk.js": "/simon/static/js/1.d1a4ddaa.chunk.js",
-  "static/js/1.d1a4ddaa.chunk.js.map": "/simon/static/js/1.d1a4ddaa.chunk.js.map",
+  "main.js": "/simon/static/js/main.39d2fc91.chunk.js",
+  "main.js.map": "/simon/static/js/main.39d2fc91.chunk.js.map",
+  "static/js/1.f606068a.chunk.js": "/simon/static/js/1.f606068a.chunk.js",
+  "static/js/1.f606068a.chunk.js.map": "/simon/static/js/1.f606068a.chunk.js.map",
   "runtime~main.js": "/simon/static/js/runtime~main.648423c2.js",
   "runtime~main.js.map": "/simon/static/js/runtime~main.648423c2.js.map",
   "static/media/simonSound1.mp3": "/simon/static/media/simonSound1.319c7710.mp3",
@@ -12,6 +12,6 @@
   "static/media/simonSound4.mp3": "/simon/static/media/simonSound4.f4a912ee.mp3",
   "static/css/main.f54bd5af.chunk.css.map": "/simon/static/css/main.f54bd5af.chunk.css.map",
   "index.html": "/simon/index.html",
-  "precache-manifest.2d138dbb22afd265189e171b7d49d151.js": "/simon/precache-manifest.2d138dbb22afd265189e171b7d49d151.js",
+  "precache-manifest.e3ece2dc9f3388da2914e3628c946f54.js": "/simon/precache-manifest.e3ece2dc9f3388da2914e3628c946f54.js",
   "service-worker.js": "/simon/service-worker.js"
 }

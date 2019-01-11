@@ -1,15 +1,15 @@
 self.__precacheManifest = [
   {
-    "revision": "e4ea0249c5634f5589ec",
+    "revision": "39d2fc91940fe84ed234",
     "url": "/simon/static/css/main.f54bd5af.chunk.css"
   },
   {
-    "revision": "e4ea0249c5634f5589ec",
-    "url": "/simon/static/js/main.e4ea0249.chunk.js"
+    "revision": "39d2fc91940fe84ed234",
+    "url": "/simon/static/js/main.39d2fc91.chunk.js"
   },
   {
-    "revision": "d1a4ddaa62255c4c46fe",
-    "url": "/simon/static/js/1.d1a4ddaa.chunk.js"
+    "revision": "f606068ac55e7ea898bc",
+    "url": "/simon/static/js/1.f606068a.chunk.js"
   },
   {
     "revision": "648423c226ea48e5657f",
@@ -32,7 +32,7 @@ self.__precacheManifest = [
     "url": "/simon/static/media/simonSound4.f4a912ee.mp3"
   },
   {
-    "revision": "a484d2539664b947934a1a6ca2734983",
+    "revision": "4bcc2db01bf0ec71f073139b5733df5a",
     "url": "/simon/index.html"
   }
 ];

@@ -5,3 +5,4 @@ export * from './AppBarWrapper';
 export * from './ModalBackdrop';
 export * from './ModalContainer';
 export * from './ModalMessage';
+export * from './ScoreContainer';

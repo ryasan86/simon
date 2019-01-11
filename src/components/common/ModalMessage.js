@@ -7,6 +7,7 @@ const ModalMessage = styled.div`
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+  color: white;
 `;
 
 export { ModalMessage };

@@ -1,15 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Pad from './Pad';
 import { colorObj } from '../globals';
-
-const styles = {
-  display: 'flex'
-};
+// components
+import Pad from './Pad';
 
 const Pads = ({ pads, handleClick, activePad }) => {
   return (
-    <div style={styles}>
+    <div style={{ display: 'flex' }}>
       {pads.map((color, i) => (
         <Pad
           key={i}

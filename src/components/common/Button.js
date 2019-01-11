@@ -3,9 +3,12 @@ import styled from 'styled-components';
 const Button = styled.button`
   background: transparent;
   border: 2px solid white;
+  border-radius: 5px;
+  height: 50px;
   padding: 0 20px 0 20px;
   color: white;
   font-size: 20px;
+  outline: none;
   cursor: pointer;
   &:hover {
     background: white;

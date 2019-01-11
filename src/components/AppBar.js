@@ -1,13 +1,17 @@
 import React, { Component } from 'react';
-import { Button, Logo, AppBarWrapper } from './common';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import { gameActions } from './../actions';
 import logo from './../ghlogo.svg';
 import { GITHUB_REPO_URL } from '../globals';
+// components
+import { Button, Logo, AppBarWrapper } from './common';
 
 class AppBar extends Component {
   render = () => {
     return (
       <AppBarWrapper>
-        <Button>Reset</Button>
+        <Button>Start</Button>
         <a href={GITHUB_REPO_URL}>
           <Logo src={logo} alt="github" />
         </a>
@@ -16,4 +20,5 @@ class AppBar extends Component {
   };
 }
 
-export default AppBar;
+export default connect(state => state,   dispatch => ({ actions: bindActionCreators(gameActions, dispatch) })
+)(AppBar);

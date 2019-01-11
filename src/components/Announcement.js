@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { gameActions } from './../actions';
 import { connect } from 'react-redux';
+// components
 import {
   ModalBackdrop,
   ModalContainer,
@@ -21,7 +22,7 @@ class Announcement extends Component {
       <ModalBackdrop>
         <ModalContainer>
           <ModalMessage>
-            message here
+            Message Here
             <Button onClick={this.startGame}>Play Again!</Button>
           </ModalMessage>
         </ModalContainer>

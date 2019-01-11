@@ -13,10 +13,10 @@ import Announcement from './components/Announcement';
 import { FlexContainer } from './components/common';
 
 class App extends Component {
-  componentDidMount = async () => {
-    await sleep(NEXT_LEVEL_DELAY);
-    this.startGame();
-  };
+
+  componentDidMount = () => {
+    console.log(this.props.game);
+  }
 
   // start game then play pad sequence
   startGame = () => {

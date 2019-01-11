@@ -1,22 +1,11 @@
-import styled, { keyframes, css } from 'styled-components';
+import styled, { css } from 'styled-components';
 import { lighten } from 'polished';
-
-// neon glow animation
-const neonGlow = color => keyframes`
-    from {
-      box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px ${color},
-        0 0 35px ${color}, 0 0 40px ${color}, 0 0 50px ${color}, 0 0 75px ${color};
-      }
-      to {
-        box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px ${color},
-          0 0 70px ${color}, 0 0 80px ${color}, 0 0 100px ${color}, 0 0 150px ${color};
-    }
-`;
+import { createNeonAnimation } from './../../utils';
 
 // neon glow on active pad
 const activeCSS = color => css`
   background: ${lighten(0.3, color)};
-  animation: ${neonGlow(color)} 0.5s linear;
+  animation: ${createNeonAnimation(color)} 0.5s linear;
   border: 3px solid white;
   border-radius: 30px;
   transform: scale(1.3);

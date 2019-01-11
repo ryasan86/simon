@@ -1,6 +1,6 @@
 import { keyframes } from 'styled-components';
 
-const neonGlow = color => keyframes`
+const createNeonAnimation = color => keyframes`
     from {
       box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px ${color},
         0 0 35px ${color}, 0 0 40px ${color}, 0 0 50px ${color}, 0 0 75px ${color};
@@ -11,4 +11,4 @@ const neonGlow = color => keyframes`
     }
 `;
 
-export { neonGlow };
+export { createNeonAnimation };

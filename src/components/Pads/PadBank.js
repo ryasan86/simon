@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Pad from './Pad';
+import { colorObj } from './../../globals';
 
 const styles = {
   display: 'flex'
@@ -13,6 +14,7 @@ const Pads = ({ pads, handleClick, activePad }) => {
         <Pad
           key={i}
           color={color}
+          audioUrl={colorObj[color].audioUrl}
           onClick={handleClick}
           data-color={color}
           active={activePad === color}

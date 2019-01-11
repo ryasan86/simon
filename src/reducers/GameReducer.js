@@ -1,5 +1,6 @@
 import {
   START_GAME,
+  END_GAME,
   NEXT_LEVEL,
   SEQUENCE_ON,
   SEQUENCE_OFF,
@@ -18,6 +19,8 @@ export default (state = INITIAL_STATE, action) => {
   switch (type) {
     case START_GAME:
       return { ...state, gameOver: false, score: 0 };
+    case END_GAME:
+      return { ...state, gameOver: true };
     case NEXT_LEVEL:
       return { ...state, score: state.score + 1 };
     case SEQUENCE_ON:

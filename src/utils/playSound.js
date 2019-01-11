@@ -1,6 +1,6 @@
 const playSound = audioUrl => {
-  const audio = new Audio(audioUrl);
-  audio.play();
+  let audio = new Audio(audioUrl);
+  audio.play()
 };
 
 export { playSound };

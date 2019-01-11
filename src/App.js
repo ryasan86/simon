@@ -8,17 +8,19 @@ import { gameActions } from './actions';
 // components
 import PadBank from './components/Pads/PadBank';
 import Score from './components/Score/Score';
+import Announcement from './components/Announcement/Announcement';
 import FlexContainer from './components/common/FlexContainer';
 
 class App extends Component {
   componentDidMount = () => {
-    this.startGame();
+    sleep(NEXT_LEVEL_DELAY).then(this.startGame);
   };
 
   // start game then play pad sequence
   startGame = () => {
-    this.props.actions.startGame();
-    this.playSequence();
+    const { startGame, playSequence } = this.props.actions;
+    startGame();
+    playSequence();
   };
 
   // play pad animation and sound with delay between pads
@@ -29,21 +31,6 @@ class App extends Component {
     await sleep(SEQUENCE_DELAY);
     this.props.actions.activePad('');
     return sleep(SEQUENCE_DELAY);
-  };
-
-  // play sequence of pads with delay between levels
-  playSequence = async () => {
-    const {
-      actions: { sequenceOn, sequenceOff, activePad },
-      match: { sequence }
-    } = this.props;
-
-    sequenceOn();
-    for (let i = 0; i < sequence.length; i++) {
-      await this.playPad(colorObj[sequence[i]]);
-    }
-    activePad('');
-    sequenceOff();
   };
 
   // pad click
@@ -64,19 +51,23 @@ class App extends Component {
       // if current guess is the last item played in sequence go to next level
       if (sequence.length === guessed.length) {
         this.props.actions.nextLevel();
-        sleep(NEXT_LEVEL_DELAY).then(() => this.playSequence());
+        sleep(NEXT_LEVEL_DELAY).then(this.props.actions.playSequence);
       }
+      // if incorrect color is pressed
     } else {
-      console.log('sorry try again!');
+      this.props.actions.endGame();
     }
   };
 
   render = () => {
+    const { score, gameOver } = this.props.game;
+
     return (
       <Fragment>
         <FlexContainer>
+          {gameOver ? <Announcement /> : ''}
           <PadBank pads={colors.slice(0, 2)} handleClick={this.handleClick} />
-          <Score score={this.props.game.score} />
+          <Score score={score} />
           <PadBank pads={colors.slice(2, 4)} handleClick={this.handleClick} />
         </FlexContainer>
       </Fragment>

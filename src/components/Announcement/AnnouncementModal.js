@@ -10,10 +10,11 @@ const AnnouncementModal = styled.div`
   margin-top: -165px;
   margin-left: -275px;
   z-index: 9999;
-  border-radius: 0.5rem;
-  background-color: white;
   display: flex;
   justify-content: center;
+  background-color: transparent;
+  color: white;
+  border: 2px solid white;
 `;
 
 export default AnnouncementModal;

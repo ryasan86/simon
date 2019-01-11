@@ -7,7 +7,7 @@ const AnnouncementBackdrop = styled.div`
   width: 100%;
   height: 100%;
   z-index: 9998;
-  background: transparentize(#000, 0.5);
+  background: rgba(0, 0, 0, 0.8);
 `;
 
 export default AnnouncementBackdrop;

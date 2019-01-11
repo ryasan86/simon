@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const ScoreContainer = styled.div`
-  z-index: 9998;
+  z-index: 9997;
   width: 100px;
   height: 100px;
   font-size: 50px;

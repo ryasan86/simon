@@ -1,21 +1,23 @@
+import { sound1, sound2, sound3, sound4 } from './audios';
+
 export const colors = ['red', 'blue', 'green', 'yellow'];
 
 export const colorObj = {
   red: {
     color: 'red',
-    audioUrl: 'https://s3.amazonaws.com/freecodecamp/simonSound1.mp3'
+    audioUrl: sound1
   },
   blue: {
     color: 'blue',
-    audioUrl: 'https://s3.amazonaws.com/freecodecamp/simonSound1.mp3'
+    audioUrl: sound2
   },
   yellow: {
     color: 'yellow',
-    audioUrl: 'https://s3.amazonaws.com/freecodecamp/simonSound1.mp3'
+    audioUrl: sound3
   },
   green: {
     color: 'green',
-    audioUrl: 'https://s3.amazonaws.com/freecodecamp/simonSound1.mp3'
+    audioUrl: sound4
   }
 };
 

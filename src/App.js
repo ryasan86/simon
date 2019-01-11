@@ -6,14 +6,16 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { gameActions } from './actions';
 // components
-import PadBank from './components/Pads/PadBank';
-import Score from './components/Score/Score';
-import Announcement from './components/Announcement/Announcement';
-import FlexContainer from './components/common/FlexContainer';
+import AppBar from './components/AppBar';
+import PadBank from './components/PadBank';
+import Score from './components/Score';
+import Announcement from './components/Announcement';
+import { FlexContainer } from './components/common';
 
 class App extends Component {
-  componentDidMount = () => {
-    sleep(NEXT_LEVEL_DELAY).then(this.startGame);
+  componentDidMount = async () => {
+    await sleep(NEXT_LEVEL_DELAY);
+    this.startGame();
   };
 
   // start game then play pad sequence
@@ -35,11 +37,13 @@ class App extends Component {
 
   // pad click
   handleClick = async e => {
-    const { color: guess } = e.target.dataset;
+    const { color } = e.target.dataset;
     const { game, actions } = this.props;
-    !game.playingSequence && (await actions.guessColor({ guess }));
-    this.playPad(colorObj[guess]);
-    this.checkWin();
+    if (game.playingSequence === false) {
+      await actions.guessColor({ guess: color });
+      this.playPad(colorObj[color]);
+      this.checkWin();
+    }
   };
 
   // win / loss
@@ -51,7 +55,8 @@ class App extends Component {
       // if current guess is the last item played in sequence go to next level
       if (sequence.length === guessed.length) {
         this.props.actions.nextLevel();
-        sleep(NEXT_LEVEL_DELAY).then(this.props.actions.playSequence);
+        await sleep(NEXT_LEVEL_DELAY);
+        this.props.actions.playSequence();
       }
       // if incorrect color is pressed
     } else {
@@ -65,6 +70,7 @@ class App extends Component {
     return (
       <Fragment>
         <FlexContainer>
+          <AppBar />
           {gameOver ? <Announcement /> : ''}
           <PadBank pads={colors.slice(0, 2)} handleClick={this.handleClick} />
           <Score score={score} />

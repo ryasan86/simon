@@ -8,4 +8,4 @@ const FlexContainer = styled.div`
   height: 100%;
 `;
 
-export default FlexContainer;
+export { FlexContainer };

@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Pad from './Pad';
-import { colorObj } from './../../globals';
+import { colorObj } from '../globals';
 
 const styles = {
   display: 'flex'

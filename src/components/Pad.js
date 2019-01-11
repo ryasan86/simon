@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 import { lighten } from 'polished';
-import { createNeonAnimation } from './../../utils';
+import { createNeonAnimation } from './../utils';
 
 // neon glow on active pad
 const activeCSS = color => css`

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const AnnouncementModal = styled.div`
+const ModalContainer = styled.div`
   width: 200px;
   height: 75px;
   position: absolute;
@@ -17,4 +17,4 @@ const AnnouncementModal = styled.div`
   border: 2px solid white;
 `;
 
-export default AnnouncementModal;
+export { ModalContainer };

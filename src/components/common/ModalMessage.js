@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const AnnouncementMessage = styled.div`
+const ModalMessage = styled.div`
   font-size: 20px;
   text-align: center;
   display: flex;
@@ -9,4 +9,4 @@ const AnnouncementMessage = styled.div`
   align-items: center;
 `;
 
-export default AnnouncementMessage;
+export { ModalMessage };

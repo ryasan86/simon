@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const AnnouncementBackdrop = styled.div`
+const ModalBackdrop = styled.div`
   position: absolute;
   top: 0px;
   left: 0px;
@@ -10,4 +10,4 @@ const AnnouncementBackdrop = styled.div`
   background: rgba(0, 0, 0, 0.8);
 `;
 
-export default AnnouncementBackdrop;
+export { ModalBackdrop };

@@ -11,7 +11,7 @@ import {
 const INITIAL_STATE = {
   playingSequence: false,
   gameOver: true,
-  level: 0,
+  started: false,
   score: 0,
   activePad: ''
 };
@@ -20,13 +20,13 @@ export default (state = INITIAL_STATE, action) => {
   const { type, payload } = action;
   switch (type) {
     case START_GAME:
-      return { ...state, gameOver: false, score: 0, level: 1 };
+      return { ...state, gameOver: false, score: 0, started: true };
     case END_GAME:
       return { ...state, gameOver: true, score: 0 };
     case RESET_GAME:
-      return { ...state, gameOver: true, score: 0, level: 0 };
+      return { ...state, gameOver: true, score: 0, started: false };
     case NEXT_LEVEL:
-      return { ...state, score: state.score + 1, level: state.level + 1 };
+      return { ...state, score: state.score + 1 };
     case SEQUENCE_ON:
       return { ...state, playingSequence: true };
     case SEQUENCE_OFF:

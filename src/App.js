@@ -15,7 +15,7 @@ import { FlexContainer } from './components/common';
 class App extends Component {
   componentDidMount = () => {
     console.log(this.props);
-  }
+  };
 
   // start game then play pad sequence
   startGame = () => {
@@ -38,7 +38,7 @@ class App extends Component {
   handleClick = async e => {
     const { color } = e.target.dataset;
     const { game, actions } = this.props;
-    if (game.playingSequence === false) {
+    if (!game.playingSequence && !game.gameOver) {
       await actions.guessColor({ guess: color });
       this.playPad(colorObj[color]);
       this.checkWin();
@@ -60,13 +60,12 @@ class App extends Component {
       // if incorrect color is pressed
     } else {
       this.props.actions.endGame();
-      console.log(this.props.game);
     }
   };
 
   renderAnnouncement = () => {
-    const { gameOver, level } = this.props.game;
-    if (gameOver && level > 0) return <Announcement />;
+    const { gameOver, started } = this.props.game;
+    if (gameOver && started) return <Announcement />;
   };
 
   render = () => {

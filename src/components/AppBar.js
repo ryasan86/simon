@@ -21,8 +21,8 @@ class AppBar extends Component {
   };
 
   renderButton = () => {
-    const { gameOver, level } = this.props;
-    if (gameOver && level === 0) {
+    const { gameOver, started } = this.props;
+    if (gameOver && !started) {
       return <Button onClick={this.startGame}>Start</Button>;
     } else {
       return <Button onClick={this.resetGame}>Reset</Button>;

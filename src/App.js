@@ -41,7 +41,7 @@ class App extends Component {
   };
 
   checkWin = () => {
-    const { match: {sequence, guessed}, actions: {endGame} } = this.props;
+    const { match: { sequence, guessed }, actions: { endGame } } = this.props;
     const length = guessed.length - 1;
     // if current guess corresponds to color in sequence
     if (sequence[length] === guessed[length]) {

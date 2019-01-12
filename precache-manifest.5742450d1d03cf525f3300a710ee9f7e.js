@@ -1,15 +1,15 @@
 self.__precacheManifest = [
   {
-    "revision": "77847e1d78c1db02837b",
-    "url": "/simon/static/css/main.7970bd8c.chunk.css"
+    "revision": "40f971f31b40ee96d188",
+    "url": "/simon/static/css/main.e83a8d61.chunk.css"
   },
   {
-    "revision": "77847e1d78c1db02837b",
-    "url": "/simon/static/js/main.77847e1d.chunk.js"
+    "revision": "40f971f31b40ee96d188",
+    "url": "/simon/static/js/main.40f971f3.chunk.js"
   },
   {
-    "revision": "c08a09167149bf814414",
-    "url": "/simon/static/js/1.c08a0916.chunk.js"
+    "revision": "0092354b11bf131bd477",
+    "url": "/simon/static/js/1.0092354b.chunk.js"
   },
   {
     "revision": "648423c226ea48e5657f",
@@ -32,11 +32,11 @@ self.__precacheManifest = [
     "url": "/simon/static/media/simonSound4.f4a912ee.mp3"
   },
   {
-    "revision": "ce1af83f9490f49701b90d2c8b40a892",
-    "url": "/simon/static/media/ghlogo.ce1af83f.svg"
+    "revision": "12ed70f1c8b085d4112659530b2a995f",
+    "url": "/simon/static/media/ghlogo.12ed70f1.svg"
   },
   {
-    "revision": "81f60203ee5569b2cb2d44458d779907",
+    "revision": "c304b38fd04bef3d5a78ee61511325c2",
     "url": "/simon/index.html"
   }
 ];

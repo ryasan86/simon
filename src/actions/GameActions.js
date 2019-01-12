@@ -2,6 +2,7 @@ import { sample } from 'lodash';
 import {
   START_GAME,
   END_GAME,
+  RESET_GAME,
   GUESS_COLOR,
   SEQUENCE_ON,
   SEQUENCE_OFF,
@@ -15,6 +16,7 @@ import { SEQUENCE_DELAY, colorObj } from './../globals';
 // actions
 const startGame   = () => createAction(START_GAME, sample(colors));
 const endGame     = () => createAction(END_GAME);
+const resetGame   = () => createAction(RESET_GAME);
 const sequenceOn  = () => createAction(SEQUENCE_ON);
 const sequenceOff = () => createAction(SEQUENCE_OFF);
 const nextLevel   = () => createAction(NEXT_LEVEL);
@@ -43,5 +45,6 @@ export const gameActions = {
   sequenceOff,
   nextLevel,
   activePad,
-  playSequence
+  playSequence,
+  resetGame
 };

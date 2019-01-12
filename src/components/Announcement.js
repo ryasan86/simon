@@ -2,17 +2,15 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { gameActions } from './../actions';
 import { connect } from 'react-redux';
+import { NEXT_LEVEL_DELAY } from '../globals';
+import { sleep } from './../utils';
 // components
-import {
-  ModalBackdrop,
-  ModalContainer,
-  ModalMessage,
-  Button
-} from './common';
+import { ModalBackdrop, ModalContainer, ModalMessage, Button } from './common';
 
 class Announcement extends Component {
-  startGame = () => {
+  startGame = async () => {
     const { startGame, playSequence } = this.props.actions;
+    await sleep(NEXT_LEVEL_DELAY);
     startGame();
     playSequence();
   };
@@ -32,6 +30,6 @@ class Announcement extends Component {
 }
 
 export default connect(
-  null,
+  state => state.game,
   dispatch => ({ actions: bindActionCreators(gameActions, dispatch) })
 )(Announcement);

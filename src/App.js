@@ -13,9 +13,8 @@ import Announcement from './components/Announcement';
 import { FlexContainer } from './components/common';
 
 class App extends Component {
-
   componentDidMount = () => {
-    console.log(this.props.game);
+    console.log(this.props);
   }
 
   // start game then play pad sequence
@@ -61,17 +60,23 @@ class App extends Component {
       // if incorrect color is pressed
     } else {
       this.props.actions.endGame();
+      console.log(this.props.game);
     }
   };
 
+  renderAnnouncement = () => {
+    const { gameOver, level } = this.props.game;
+    if (gameOver && level > 0) return <Announcement />;
+  };
+
   render = () => {
-    const { score, gameOver } = this.props.game;
+    const { score } = this.props.game;
 
     return (
       <Fragment>
         <FlexContainer>
+          {this.renderAnnouncement()}
           <AppBar />
-          {gameOver ? <Announcement /> : ''}
           <PadBank pads={colors.slice(0, 2)} handleClick={this.handleClick} />
           <Score score={score} />
           <PadBank pads={colors.slice(2, 4)} handleClick={this.handleClick} />

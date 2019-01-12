@@ -8,7 +8,7 @@ const activeCSS = color => css`
   animation: ${createNeonAnimation(color)} 0.5s linear;
   border: 3px solid white;
   border-radius: 30px;
-  transform: scale(1.3);
+  transform: scale(1.1);
 `;
 
 // pad component
@@ -24,7 +24,21 @@ const Pad = styled.div`
   ${({ active, color }) => (active ? activeCSS(color) : '')}
 
   &:hover {
-    transform: ${({ active }) => (!active ? 'scale(1.03)' : '')};
+    transform: ${({ active, playingSequence }) =>
+      !active && !playingSequence ? 'scale(1.03)' : ''};
+  }
+
+  &.top-left {
+    border-top-left-radius: 100%;
+  }
+  &.top-right {
+    border-top-right-radius: 100%;
+  }
+  &.bottom-left {
+    border-bottom-left-radius: 100%;
+  }
+  &.bottom-right {
+    border-bottom-right-radius: 100%;
   }
 `;
 

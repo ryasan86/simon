@@ -5,7 +5,7 @@ const ScoreContainer = styled.div`
   width: 100px;
   height: 100px;
   font-size: 50px;
-  position: fixed;
+  position: absolute;
   border-radius: 50%;
   background: #131313;
   color: white;

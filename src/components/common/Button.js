@@ -14,6 +14,11 @@ const Button = styled.button`
   &:hover {
     background: white;
     color: black;
+    &:disabled {
+      pointer-events: none;
+      background: transparent;
+      color: white;
+    }
   }
 `;
 

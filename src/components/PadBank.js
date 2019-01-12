@@ -4,7 +4,7 @@ import { colorObj } from '../globals';
 // components
 import Pad from './Pad';
 
-const Pads = ({ pads, handleClick, activePad }) => {
+const Pads = ({ pads, handleClick, activePad, playingSequence }) => {
   return (
     <div style={{ display: 'flex' }}>
       {pads.map((color, i) => (
@@ -15,6 +15,8 @@ const Pads = ({ pads, handleClick, activePad }) => {
           onClick={handleClick}
           data-color={color}
           active={activePad === color}
+          playingSequence={playingSequence}
+          className={colorObj[color].class}
         />
       ))}
     </div>

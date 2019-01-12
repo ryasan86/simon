@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { gameActions } from './../actions';
-import logo from './../ghlogo.svg';
+import { GH_ICON } from './../images';
 import { GITHUB_REPO_URL, NEXT_LEVEL_DELAY } from '../globals';
 import { sleep } from './../utils';
 // components
@@ -21,11 +21,15 @@ class AppBar extends Component {
   };
 
   renderButton = () => {
-    const { gameOver, started } = this.props;
+    const { gameOver, started, playingSequence } = this.props;
     if (gameOver && !started) {
       return <Button onClick={this.startGame}>Start</Button>;
     } else {
-      return <Button onClick={this.resetGame}>Reset</Button>;
+      return (
+        <Button onClick={this.resetGame} disabled={playingSequence}>
+          Reset
+        </Button>
+      );
     }
   };
 
@@ -34,7 +38,7 @@ class AppBar extends Component {
       <AppBarWrapper>
         {this.renderButton()}
         <a href={GITHUB_REPO_URL}>
-          <Logo src={logo} alt="github" />
+          <Logo src={GH_ICON} alt="github" />
         </a>
       </AppBarWrapper>
     );

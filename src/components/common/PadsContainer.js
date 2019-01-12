@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
-const FlexContainer = styled.div`
+const PadsContainer = styled.div`
   display: flex;
   justify-content: center;
+  flex-direction: column;
   align-items: center;
-  height: 100%;
 `;
 
-export { FlexContainer };
+export { PadsContainer };

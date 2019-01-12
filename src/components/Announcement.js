@@ -20,7 +20,7 @@ class Announcement extends Component {
       <ModalBackdrop>
         <ModalContainer>
           <ModalMessage>
-            Message Here
+            Final Score: {this.props.score}
             <Button onClick={this.startGame}>Play Again!</Button>
           </ModalMessage>
         </ModalContainer>

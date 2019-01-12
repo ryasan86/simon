@@ -22,7 +22,7 @@ export default (state = INITIAL_STATE, action) => {
     case START_GAME:
       return { ...state, gameOver: false, score: 0, started: true };
     case END_GAME:
-      return { ...state, gameOver: true, score: 0 };
+      return { ...state, gameOver: true };
     case RESET_GAME:
       return { ...state, gameOver: true, score: 0, started: false };
     case NEXT_LEVEL:

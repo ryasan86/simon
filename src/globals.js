@@ -1,23 +1,27 @@
-import { sound1, sound2, sound3, sound4 } from './audios';
+import { SOUND_1, SOUND_2, SOUND_3, SOUND_4 } from './audios';
 
 export const colors = ['red', 'blue', 'green', 'yellow'];
 
 export const colorObj = {
   red: {
     color: 'red',
-    audioUrl: sound1
+    audioUrl: SOUND_1,
+    class: 'top-left'
   },
   blue: {
     color: 'blue',
-    audioUrl: sound2
+    audioUrl: SOUND_2,
+    class: 'top-right'
   },
   yellow: {
     color: 'yellow',
-    audioUrl: sound3
+    audioUrl: SOUND_3,
+    class: 'bottom-right'
   },
   green: {
     color: 'green',
-    audioUrl: sound4
+    audioUrl: SOUND_4,
+    class: 'bottom-left'
   }
 };
 

@@ -14,13 +14,20 @@ const activeCSS = color => css`
 // pad component
 const Pad = styled.div`
   margin: 5px;
-  width: 200px;
-  height: 200px;
   border-radius: 15px;
   box-sizing: border-box;
   background: ${({ color, active }) => color};
   cursor: pointer;
   transition: 0.2s;
+  width: 200px;
+  height: 200px;
+  @media (max-width: 720px) {
+    width: 100px;
+    height: 100px;
+    border-radius: 7px;
+    margin: 2px;
+  }
+
   ${({ active, color }) => (active ? activeCSS(color) : '')}
 
   &:hover {

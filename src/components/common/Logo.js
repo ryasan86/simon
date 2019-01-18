@@ -1,6 +1,6 @@
 import styled, { keyframes } from 'styled-components';
 
-const shake = keyframes`
+const wobble = keyframes`
   0% { transform: rotate(0deg) }
   25% { transform: rotate(-30deg) }
   50% { transform: rotate(30deg) }
@@ -13,7 +13,7 @@ const Logo = styled.img`
   height: 50px;
   cursor: pointer;
   &:hover {
-    animation: ${shake} 1s;
+    animation: ${wobble} 1s;
   }
 `;
 

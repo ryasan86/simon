@@ -42,9 +42,9 @@ class App extends Component {
 
   checkWin = () => {
     const { match: { sequence, guessed }, actions: { endGame } } = this.props;
-    const length = guessed.length - 1;
+    const tail = guessed.length - 1;
     // if current guess corresponds to color in sequence
-    if (sequence[length] === guessed[length]) {
+    if (sequence[tail] === guessed[tail]) {
       // if current guess is the last item played in sequence player advances
       if (sequence.length === guessed.length) {
         this.goNextLevel();

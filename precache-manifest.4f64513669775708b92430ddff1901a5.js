@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "cc08ec0bc5aba38d14f8",
+    "revision": "b589bd78a933a686e2e6",
     "url": "/simon/static/css/main.e83a8d61.chunk.css"
   },
   {
-    "revision": "cc08ec0bc5aba38d14f8",
-    "url": "/simon/static/js/main.cc08ec0b.chunk.js"
+    "revision": "b589bd78a933a686e2e6",
+    "url": "/simon/static/js/main.b589bd78.chunk.js"
   },
   {
     "revision": "72691cd193cc7e0422ae",
@@ -36,7 +36,7 @@ self.__precacheManifest = [
     "url": "/simon/static/media/ghlogo.12ed70f1.svg"
   },
   {
-    "revision": "11d691b2e1fb4bfa24e67ec15342e588",
+    "revision": "4acaab0ac341d1991fd273e562ff06cc",
     "url": "/simon/index.html"
   }
 ];

@@ -10,14 +10,15 @@ const Button = styled.button`
   color: white;
   font-size: 20px;
   outline: none;
+  transition: background 0.5s, color 0.5s;
   cursor: pointer;
   &:hover {
     background: white;
     color: black;
     &:disabled {
-      pointer-events: none;
       background: transparent;
       color: white;
+      cursor: not-allowed;
     }
   }
 `;

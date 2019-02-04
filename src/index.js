@@ -16,5 +16,4 @@ const APP_WITH_STORE = (
   </Provider>
 );
 
-document.title = 'React Simon Says';
 ReactDOM.render(APP_WITH_STORE, document.getElementById('root'));

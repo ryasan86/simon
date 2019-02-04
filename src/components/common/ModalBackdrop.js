@@ -8,6 +8,9 @@ const ModalBackdrop = styled.div`
   height: 100%;
   z-index: 9998;
   background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 export { ModalBackdrop };

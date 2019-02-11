@@ -26,7 +26,7 @@ class App extends Component {
   handleClick = async e => {
     const { color } = e.target.dataset;
     const { game, actions } = this.props;
-    // only let user press pad under these conditions
+    // only let user press pad if sequence isn't playing and game isn't over
     if (!game.playingSequence && !game.gameOver) {
       await actions.guessColor({ guess: color });
       this.playPad(colorObj[color]);

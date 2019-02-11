@@ -73,14 +73,12 @@ class App extends Component {
             <PadBank
               pads={colors.slice(0, 2)}
               handleClick={this.handleClick}
-              className="top"
-            />
+              className="top" />
             <Score score={score} />
             <PadBank
               pads={colors.slice(2, 4)}
               handleClick={this.handleClick}
-              className="bottom"
-            />
+              className="bottom" />
           </PadsContainer>
         </FlexContainer>
       </Fragment>

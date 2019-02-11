@@ -62,8 +62,6 @@ class App extends Component {
   };
 
   render = () => {
-    const { score } = this.props.game;
-
     return (
       <Fragment>
         <FlexContainer>
@@ -74,7 +72,7 @@ class App extends Component {
               pads={colors.slice(0, 2)}
               handleClick={this.handleClick}
               className="top" />
-            <Score score={score} />
+            <Score score={this.props.game.score} />
             <PadBank
               pads={colors.slice(2, 4)}
               handleClick={this.handleClick}

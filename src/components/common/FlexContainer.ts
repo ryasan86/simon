@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
 const FlexContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
+    align-items: center;
+    display: flex;
+    height: 100%;
+    justify-content: center;
 `;
 
 export { FlexContainer };

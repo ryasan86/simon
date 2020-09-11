@@ -10,13 +10,22 @@ type PadsProps = { state: StateProps } & DispatchProps
 
 const PadsComponent: React.FC<PadsProps> = ({ state, dispatch }) => {
     const { playingSequence, guessed, sequence, started, score } = state
-    const [selected, selectColor] = useState(null)
-    const [isAnimating, setIsAnimating] = useState(false)
+    const [selected, selectColor] = useState<string>(null)
+    const [isAnimating, setIsAnimating] = useState<boolean>(false)
+
+    const briefly = async (briefEffect, arg, duration) => {
+        briefEffect(arg)
+        await idle(duration)
+        briefEffect(null)
+    }
 
     const handleClick = (e: MouseEvent) => {
-        if (!playingSequence) {
-            const { color } = (e.target as HTMLElement).dataset
+        const { color } = (e.target as HTMLElement).dataset
+
+        if (!playingSequence && started && guessed.length < sequence.length) {
             dispatch({ type: GUESS, payload: color })
+        } else if (!started) {
+            briefly(selectColor, color, sequenceDelay)
         }
     }
 
@@ -26,30 +35,23 @@ const PadsComponent: React.FC<PadsProps> = ({ state, dispatch }) => {
 
     useEffect(() => {
         if (guessed.length) {
-            selectColor(guessed[guessed.length - 1])
-            idle(sequenceDelay).then(() => selectColor(null))
+            const color = guessed[guessed.length - 1]
+            briefly(selectColor, color, sequenceDelay)
         }
     }, [guessed])
 
     useEffect(() => {
-        if (score) {
-            setIsAnimating(true)
-            idle(1000).then(() => setIsAnimating(false))
-        }
+        if (score) briefly(setIsAnimating, true, 1000)
     }, [score])
 
     useEffect(() => {
-        const toggleIsPlaying = () => {
-            dispatch({ type: TOGGLE_PLAYING_SEQUENCE })
-        }
         const playSequence = async () => {
-            toggleIsPlaying()
+            dispatch({ type: TOGGLE_PLAYING_SEQUENCE })
             for (const c of sequence) {
-                selectColor(c)
-                await idle(sequenceDelay).then(() => selectColor(null))
+                await briefly(selectColor, c, sequenceDelay)
                 await idle(sequenceDelay)
             }
-            toggleIsPlaying()
+            dispatch({ type: TOGGLE_PLAYING_SEQUENCE })
         }
 
         if (started) playSequence()

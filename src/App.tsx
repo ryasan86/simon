@@ -70,7 +70,10 @@ const reducer = (state: StateProps, action: ActionProps) => {
                         : state.highScore
             }
         case RESET_GAME:
-            return { ...initialState, highScore: state.highScore }
+            return {
+                ...initialState,
+                highScore: state.highScore
+            }
         default:
             return state
     }
@@ -80,16 +83,21 @@ const AppComponent: React.FC = () => {
     const [state, dispatch] = useReducer<Reducer<StateProps, ActionProps>>(reducer, initialState) // prettier-ignore
     const { gameOver, started, guessed, sequence, highScore, score } = state // prettier-ignore
 
-    const prepareNextLevel = async (delay, type) => {
-        await idle(delay).then(() => dispatch({ type }))
-    }
-
     const checkWin = useCallback(() => {
-        if (sequence.every((c, i) => c === guessed[i])) {
-            prepareNextLevel(sequenceDelay, SCORE_POINT)
-            prepareNextLevel(nextLevelDelay, NEXT_LEVEL)
+        if (
+            sequence.length === guessed.length &&
+            sequence.every((c, i) => c === guessed[i])
+        ) {
+            idle(sequenceDelay)
+                .then(() => dispatch({ type: SCORE_POINT }))
+                .then(() =>
+                    idle(nextLevelDelay).then(() =>
+                        dispatch({ type: NEXT_LEVEL })
+                    )
+                )
             return null
         }
+
         const tail = guessed.length - 1
         if (guessed[tail] !== sequence[tail]) {
             dispatch({ type: END_GAME })

@@ -12,7 +12,7 @@ const ModalComponent: React.FC<Props> = ({ state, dispatch }) => (
             <Modal.Message>
                 Final Score: {state.score}
                 <Button onClick={() => dispatch({ type: RESET_GAME })}>
-                    Play Again!
+                    Close
                 </Button>
             </Modal.Message>
         </Modal.Container>

@@ -7,7 +7,7 @@ export interface GameProps {
         activePad: string
         sequence: string[]
         guessed: string[]
-        highScore: 0
+        highScore: number
     }
 }
 

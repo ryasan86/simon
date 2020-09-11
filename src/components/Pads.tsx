@@ -11,7 +11,7 @@ type PadsProps = { state: StateProps } & DispatchProps
 const PadsComponent: React.FC<PadsProps> = ({ state, dispatch }) => {
     const { playingSequence, guessed, sequence, started, score } = state
     const [selected, selectColor] = useState(null)
-    const [isBouncing, setIsBouncing] = useState(false)
+    const [isAnimating, setIsAnimating] = useState(false)
 
     const handleClick = (e: MouseEvent) => {
         if (!playingSequence) {
@@ -33,8 +33,8 @@ const PadsComponent: React.FC<PadsProps> = ({ state, dispatch }) => {
 
     useEffect(() => {
         if (score) {
-            setIsBouncing(true)
-            idle(1000).then(() => setIsBouncing(false))
+            setIsAnimating(true)
+            idle(1000).then(() => setIsAnimating(false))
         }
     }, [score])
 
@@ -69,7 +69,7 @@ const PadsComponent: React.FC<PadsProps> = ({ state, dispatch }) => {
                     />
                 ))}
                 <Pads.ScoreContainer>
-                    <Pads.ScoreText isBouncing={isBouncing}>
+                    <Pads.ScoreText isAnimating={isAnimating}>
                         {score}
                     </Pads.ScoreText>
                 </Pads.ScoreContainer>

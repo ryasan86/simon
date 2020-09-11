@@ -18,5 +18,5 @@ export const soundMap = {
 
 export const sequenceDelay = 200
 export const reducedDelay = sequenceDelay / 2
-export const nextLevelDelay = 1000
+export const nextLevelDelay = 2000
 export const githubRepoUrl = 'https://github.com/ryasan86/simon'

@@ -16,6 +16,7 @@ import {
     TOGGLE_PLAYING_SEQUENCE,
     SCORE_POINT
 } from './action-types'
+import Announcement from './components/Announcement'
 
 const initialState = {
     playingSequence: false,
@@ -77,7 +78,7 @@ const reducer = (state: StateProps, action: ActionProps) => {
 
 const AppComponent: React.FC = () => {
     const [state, dispatch] = useReducer<Reducer<StateProps, ActionProps>>(reducer, initialState) // prettier-ignore
-    const { gameOver, started, guessed, sequence, highScore } = state // prettier-ignore
+    const { gameOver, started, guessed, sequence, highScore, score } = state // prettier-ignore
 
     const prepareNextLevel = async (delay, type) => {
         await idle(delay).then(() => dispatch({ type }))
@@ -106,6 +107,7 @@ const AppComponent: React.FC = () => {
                 <Navbar state={state} dispatch={dispatch} />
                 <App.HighScore>High Score: {highScore}</App.HighScore>
                 <PadsComponent state={state} dispatch={dispatch} />
+                <Announcement score={score} />
             </App.Main>
         </App>
     )

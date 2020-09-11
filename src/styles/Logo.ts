@@ -1,4 +1,4 @@
-import styled, { keyframes } from 'styled-components';
+import styled, { keyframes, css } from 'styled-components'
 
 const wobble = keyframes`
     0% { transform: rotate(0deg); }
@@ -6,16 +6,18 @@ const wobble = keyframes`
     50% { transform: rotate(30deg); }
     75% { transform: rotate(-30deg); }
     100% { transform: rotate(0deg); }
-`;
+`
+
+const wobbleStyles = css`
+    animation: ${wobble} 1s;
+`
 
 const Logo = styled.img`
     cursor: pointer;
     height: 50px;
     width: 50px;
 
-    &:hover {
-        animation: ${wobble} 1s;
-    }
-`;
+    ${props => props.isAnimating && wobbleStyles}
+`
 
-export { Logo };
+export { Logo }

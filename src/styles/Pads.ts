@@ -113,7 +113,7 @@ Pads.ScoreText = styled.div`
     line-height: 100px;
     width: 100%;
     top: 7px;
-    ${props => props.isBouncing && bounceStyles()};
+    ${props => props.isAnimating && bounceStyles()};
 `
 
 export { Pads }

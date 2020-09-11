@@ -6,7 +6,7 @@ import { idle, random } from '../utils'
 const messages = [
     'Great!',
     'Good Job :)',
-    'Excellent',
+    'Excellent!',
     'Keep It Going!',
     "Don't Stop Now!"
 ]
@@ -24,7 +24,7 @@ const AnnouncementComponent: React.FC<{ score: number }> = ({ score }) => {
     }, [])
 
     useEffect(() => {
-        if (score) {
+        if (score && !(score % 2)) {
             setRandomMessage()
             setIsAnimating(true)
             idle(1500).then(() => setIsAnimating(false))

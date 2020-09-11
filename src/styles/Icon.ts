@@ -12,7 +12,7 @@ const wobbleStyles = css`
     animation: ${wobble} 1s;
 `
 
-const Logo = styled.img`
+const Icon = styled.a`
     cursor: pointer;
     height: 50px;
     width: 50px;
@@ -20,4 +20,9 @@ const Logo = styled.img`
     ${props => props.isAnimating && wobbleStyles}
 `
 
-export { Logo }
+Icon.Img = styled.img`
+    height: 100%;
+    width: 100%;
+`
+
+export { Icon }

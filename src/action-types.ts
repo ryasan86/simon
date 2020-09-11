@@ -1,0 +1,7 @@
+export const START_GAME = 'START_GAME'
+export const END_GAME = 'END_GAME'
+export const RESET_GAME = 'RESET_GAME'
+export const NEXT_LEVEL = 'NEXT_LEVEL'
+export const GUESS = 'GUESS'
+export const TOGGLE_PLAYING_SEQUENCE = 'TOGGLE_PLAYING_SEQUENCE'
+export const SCORE_POINT = 'SCORE_POINT'

@@ -12,6 +12,7 @@
         "declaration-block-semicolon-newline-after": null,
         "max-nesting-depth": 2,
         "selector-max-id": null,
-        "value-keyword-case": null
+        "value-keyword-case": null,
+        "selector-no-qualifying-type": null
     }
 }

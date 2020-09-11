@@ -17,12 +17,12 @@ const Button = styled.button`
     &:hover {
         background: white;
         color: black;
+    }
 
-        &:disabled {
-            background: transparent;
-            color: white;
-            cursor: not-allowed;
-        }
+    &:disabled {
+        background: transparent;
+        color: white;
+        cursor: not-allowed;
     }
 `
 

@@ -1,31 +1,18 @@
-export interface GameProps {
-    game: {
-        playingSequence: boolean
-        gameOver: boolean
-        started: boolean
-        score: number
-        activePad: string
-        sequence: string[]
-        guessed: string[]
-        highScore: number
-    }
+export interface StateProps {
+    playingSequence?: boolean
+    gameOver?: boolean
+    started?: boolean
+    score?: number
+    sequence?: string[]
+    guessed?: string[]
+    highScore?: number
 }
 
-export interface Action {
+export interface ActionProps {
     type: string
     payload?: any
 }
 
-export interface ActionProps {
-    actions: {
-        onStartGame: () => Action
-        onEndGame: () => Action
-        onResetGame: () => Action
-        onSequenceOn: () => Action
-        onSequenceOff: () => Action
-        onNextLevel: () => Action
-        onGuessColor: (payload: { guess: string }) => Action
-        onActivePad: (payload: { color: string }) => Action
-        onPlaySequence: () => (dispatch: any, getState: any) => void
-    }
+export interface DispatchProps {
+    dispatch: (args: ActionProps) => void
 }

@@ -4,12 +4,14 @@ import { App } from './styles'
 import BoardPage from './pages/Board'
 import HomePage from './pages/Home'
 
-const AppComponent: React.FC = () => {
-    const [selected, setSelected] = useState('/')
+const base = process.env.NODE_ENV === 'development' ? '/' : '/simon/'
 
-    const navigate = (path = '/') => () => {
+const AppComponent: React.FC = () => {
+    const [selected, setSelected] = useState(base)
+
+    const navigate = (path = '') => () => {
         setSelected(path)
-        window.history.pushState({}, path, path)
+        window.history.pushState({}, path, base + path)
     }
 
     const handlePop = () => {
@@ -29,7 +31,7 @@ const AppComponent: React.FC = () => {
     // prettier-ignore
     return (
         <App>
-            <HomePage selected={selected === '/'} onNavigate={navigate} />
+            <HomePage selected={selected === base} onNavigate={navigate} />
             <BoardPage selected={selected.includes('board')} onNavigate={navigate} />
         </App>
     )

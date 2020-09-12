@@ -1,18 +1,27 @@
 {
-  "main.css": "/simon/static/css/main.e83a8d61.chunk.css",
-  "main.js": "/simon/static/js/main.b589bd78.chunk.js",
-  "main.js.map": "/simon/static/js/main.b589bd78.chunk.js.map",
-  "static/js/1.72691cd1.chunk.js": "/simon/static/js/1.72691cd1.chunk.js",
-  "static/js/1.72691cd1.chunk.js.map": "/simon/static/js/1.72691cd1.chunk.js.map",
-  "runtime~main.js": "/simon/static/js/runtime~main.648423c2.js",
-  "runtime~main.js.map": "/simon/static/js/runtime~main.648423c2.js.map",
-  "static/media/simonSound1.mp3": "/simon/static/media/simonSound1.319c7710.mp3",
-  "static/media/simonSound2.mp3": "/simon/static/media/simonSound2.c3c86e71.mp3",
-  "static/media/simonSound3.mp3": "/simon/static/media/simonSound3.f3c18b98.mp3",
-  "static/media/simonSound4.mp3": "/simon/static/media/simonSound4.f4a912ee.mp3",
-  "static/media/ghlogo.svg": "/simon/static/media/ghlogo.12ed70f1.svg",
-  "static/css/main.e83a8d61.chunk.css.map": "/simon/static/css/main.e83a8d61.chunk.css.map",
-  "index.html": "/simon/index.html",
-  "precache-manifest.4f64513669775708b92430ddff1901a5.js": "/simon/precache-manifest.4f64513669775708b92430ddff1901a5.js",
-  "service-worker.js": "/simon/service-worker.js"
+  "files": {
+    "main.css": "/simon/static/css/main.82cce90e.chunk.css",
+    "main.js": "/simon/static/js/main.f421fbbc.chunk.js",
+    "main.js.map": "/simon/static/js/main.f421fbbc.chunk.js.map",
+    "runtime-main.js": "/simon/static/js/runtime-main.62a46b23.js",
+    "runtime-main.js.map": "/simon/static/js/runtime-main.62a46b23.js.map",
+    "static/js/2.42363c45.chunk.js": "/simon/static/js/2.42363c45.chunk.js",
+    "static/js/2.42363c45.chunk.js.map": "/simon/static/js/2.42363c45.chunk.js.map",
+    "index.html": "/simon/index.html",
+    "precache-manifest.dde759aa0e4e8cff05e40a0f1abcff12.js": "/simon/precache-manifest.dde759aa0e4e8cff05e40a0f1abcff12.js",
+    "service-worker.js": "/simon/service-worker.js",
+    "static/css/main.82cce90e.chunk.css.map": "/simon/static/css/main.82cce90e.chunk.css.map",
+    "static/js/2.42363c45.chunk.js.LICENSE.txt": "/simon/static/js/2.42363c45.chunk.js.LICENSE.txt",
+    "static/media/ghlogo.svg": "/simon/static/media/ghlogo.ce1af83f.svg",
+    "static/media/simonSound1.mp3": "/simon/static/media/simonSound1.37e5b1b1.mp3",
+    "static/media/simonSound2.mp3": "/simon/static/media/simonSound2.3099af8a.mp3",
+    "static/media/simonSound3.mp3": "/simon/static/media/simonSound3.691b87b6.mp3",
+    "static/media/simonSound4.mp3": "/simon/static/media/simonSound4.309847df.mp3"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.62a46b23.js",
+    "static/js/2.42363c45.chunk.js",
+    "static/css/main.82cce90e.chunk.css",
+    "static/js/main.f421fbbc.chunk.js"
+  ]
 }

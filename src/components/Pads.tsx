@@ -1,10 +1,16 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useCallback } from 'react'
 
 import { Pads } from '../styles'
-import { idle, playSound } from '../utils'
+import { idle, playSound, curry } from '../utils'
 import { StateProps, DispatchProps } from '../interfaces'
 import { sequenceDelay, soundMap, colors, colorMap } from '../constants'
 import { GUESS, TOGGLE_PLAYING_SEQUENCE } from '../action-types'
+
+const activate = curry(async (setter, duration, a) => {
+    setter(a)
+    await idle(duration)
+    setter(null)
+})
 
 type PadsProps = { state: StateProps } & DispatchProps
 
@@ -13,11 +19,7 @@ const PadsComponent: React.FC<PadsProps> = ({ state, dispatch }) => {
     const [selected, selectColor] = useState<string>(null)
     const [isAnimating, setIsAnimating] = useState<boolean>(false)
 
-    const briefly = async (briefEffect, arg, duration) => {
-        briefEffect(arg)
-        await idle(duration)
-        briefEffect(null)
-    }
+    const activateColor = useCallback(activate(selectColor, sequenceDelay), [])
 
     const handleClick = (e: MouseEvent) => {
         const { color } = (e.target as HTMLElement).dataset
@@ -25,7 +27,7 @@ const PadsComponent: React.FC<PadsProps> = ({ state, dispatch }) => {
         if (!playingSequence && started && guessed.length < sequence.length) {
             dispatch({ type: GUESS, payload: color })
         } else if (!started) {
-            briefly(selectColor, color, sequenceDelay)
+            activateColor(color)
         }
     }
 
@@ -36,26 +38,26 @@ const PadsComponent: React.FC<PadsProps> = ({ state, dispatch }) => {
     useEffect(() => {
         if (guessed.length) {
             const color = guessed[guessed.length - 1]
-            briefly(selectColor, color, sequenceDelay)
+            activateColor(color)
         }
-    }, [guessed])
+    }, [guessed, activateColor])
 
     useEffect(() => {
-        if (score) briefly(setIsAnimating, true, 1000)
+        if (score) activate(setIsAnimating, 1000, true)
     }, [score])
 
     useEffect(() => {
         const playSequence = async () => {
             dispatch({ type: TOGGLE_PLAYING_SEQUENCE })
             for (const c of sequence) {
-                await briefly(selectColor, c, sequenceDelay)
+                await activateColor(c)
                 await idle(sequenceDelay)
             }
             dispatch({ type: TOGGLE_PLAYING_SEQUENCE })
         }
 
         if (started) playSequence()
-    }, [started, sequence, dispatch])
+    }, [started, sequence, dispatch, activateColor])
 
     return (
         <Pads>

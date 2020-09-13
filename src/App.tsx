@@ -15,8 +15,7 @@ const AppComponent: React.FC = () => {
     }
 
     const handlePop = () => {
-        const { pathname } = window.location
-        setSelected(pathname)
+        setSelected(window.location.pathname)
     }
 
     useEffect(() => {
